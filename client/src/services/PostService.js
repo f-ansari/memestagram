@@ -11,7 +11,7 @@ export const __GetMapPost = async () => {
 
 export const __CreatePost = async (formData) => {
   try {
-    const res = await Client.post('/post', formData)
+    const res = await Client.post('/posts', formData)
     return res.data
   } catch (error) {
     throw error
