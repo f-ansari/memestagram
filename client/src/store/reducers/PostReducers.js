@@ -35,3 +35,5 @@ const PostReducer = (state = iState, action) => {
       return { ...state }
   }
 }
+
+export default PostReducer
