@@ -4,7 +4,8 @@ import { GET_POST } from '../types'
 export const GetMapPost = () => async (dispatch) => {
   try {
     const posts = await __GetMapPost()
-    dispatchEvent({
+    console.log(posts)
+    dispatch({
       type: GET_POST,
       payload: posts
     })
