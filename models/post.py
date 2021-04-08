@@ -14,14 +14,14 @@ class Post(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow,
                            nullable=False, onupdate=datetime.now())
 
-    def __init__(self, name, image, caption):
-        self.name = name
+    def __init__(self, username, image, caption):
+        self.username = username
         self.image = image
         self.caption = caption
 
     def json(self):
         return {"id": self.id,
-                "name": self.name,
+                "username": self.username,
                 "image": self.image,
                 "caption": self.caption,
                 "created_at": str(self.created_at),
@@ -34,7 +34,8 @@ class Post(db.Model):
 
     @classmethod
     def find_all(cls):
-        return Post.query.all()
+        posts = Post.query.all()
+        return [post.json() for post in posts]
 
     @classmethod
     def find_by_id(cls, id):
@@ -44,5 +45,5 @@ class Post(db.Model):
     def delete(cls, id):
         post = Post.find_by_id(id)
         db.session.delete(post)
-        db.commit()
+        db.session.commit()
         return post.json()
