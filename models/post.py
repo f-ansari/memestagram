@@ -14,38 +14,36 @@ class Post(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow,
                            nullable=False, onupdate=datetime.now())
 
+    def __init__(self, username, image, caption):
+        self.username = username
+        self.image = image
+        self.caption = caption
 
-  def __init__(self, name, image, caption)
-    self.name = name 
-    self.image = image
-    self.caption = caption
+    def json(self):
+        return {"id": self.id,
+                "username": self.username,
+                "image": self.image,
+                "caption": self.caption,
+                "created_at": str(self.created_at),
+                "updated_at": str(self.updated_at)}
 
-  def json(self):
-    return {"id": self.id,
-            "name": self.name, 
-            "image": self.image,  
-            "caption": self.caption,
-            "created_at": str(self.created_at), 
-            "updated_at": str(self.updated_at)}
+    def create(self):
+        db.session.add(self)
+        db.session.commit()
+        return self
 
-  def create(self):
-    db.session.add(self)
-    db.session.commit()
-    return self
+    @classmethod
+    def find_all(cls):
+        posts = Post.query.all()
+        return [post.json() for post in posts]
 
-  @classmethod
-  def find_all(cls):
-    return Post.query.all()
+    @classmethod
+    def find_by_id(cls, id):
+        return Post.query.filter_by(id=id).first()
 
-  @classmethod
-  def find_by_id(cls, id):
-    return Post.query.filter_by(id=id).first()
-
-  @classmethod
-  def delete(cls, id):
-    post = Post.find_by_id(id)
-    db.session.delete(post)
-    db.commit()
-    return post.json()
-  
-   
+    @classmethod
+    def delete(cls, id):
+        post = Post.find_by_id(id)
+        db.session.delete(post)
+        db.session.commit()
+        return post.json()
