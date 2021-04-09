@@ -2,6 +2,7 @@ import { CREATE_POST, ADD_POST, DELETE_POST, GET_POST } from '../types'
 
 const iState = {
   mapPost: [],
+  postDetials: {},
   createPost: {
     username: '',
     image: '',
@@ -18,7 +19,7 @@ const PostReducer = (state = iState, action) => {
         ...state,
         createPost: {
           ...state.createPost,
-          [action.paylaod.name]: action.payload.value
+          [action.payload.name]: action.payload.value
         }
       }
     case ADD_POST:
@@ -28,9 +29,11 @@ const PostReducer = (state = iState, action) => {
       }
     case DELETE_POST:
       const mapPost = state.mapPost.filter(
-        (destroyPost, i) => destroyPost.id !== action.paylaod.data.item
+        (destroyPost, i) => destroyPost.id !== action.payload.data.item
       )
       return { ...state, ...mapPost }
+    case POST_DETAILS:
+      return { ...state, postDetials: action.payload }
     default:
       return { ...state }
   }
