@@ -1,18 +1,38 @@
-.App {
-  text-align: center;
+.head {
+  position: fixed;
+  top: 0;
+  display: inline-flex;
+  padding-left: 3em;
+  padding-right: 3em;
+  width: 100vw;
+  font-family: 'Days One', sans-serif;
+  background-color: rgba(183, 79, 206, 0.482);
+  margin-right: 3em;
 }
 
-header {
+.project-name {
+  color: rgb(65, 7, 70);
+}
+
+nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  height: 3em;
+  height: 4.9em;
   font-weight: bold;
   font-size: large;
+  margin-left: 40vw;
+  color: black;
 }
 
-header nav a {
+nav a {
   margin: 0 1.5em;
+  color: rgb(65, 7, 70);
+}
+
+.main-container {
+  margin: 10em;
+  min-width: 1000px;
 }
 
 .container-grid {
@@ -25,32 +45,45 @@ header nav a {
 }
 
 .card {
-  max-width: 300px;
-  max-height: 450px;
+  max-width: 290px;
+  max-height: 380px;
   border-radius: 4px;
   color: rgb(9, 70, 96);
   cursor: pointer;
   transition: all 0.2s;
 
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(225, 175, 205, 0.469);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.card img {
+  width: 100%;
+  border-radius: 2px;
+}
+
 .contents {
-  margin-left: 2em;
-  padding-top: 0.5em;
+  margin-left: 1em;
   padding-bottom: 0.5em;
 }
 
 .form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  text-align: center;
+  max-width: 290px;
+  max-height: 380px;
+
+  padding-top: 3em;
+  padding: 3em;
+
+  background: rgba(136, 16, 147, 0.407);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {
@@ -59,7 +92,7 @@ input {
   box-shadow: inset 4px 4px 7px #dbddde, inset -4px -4px 7px #ffffff;
   outline: none;
   border-style: hidden;
-  padding: 8px;
+  padding: 10px;
   padding-left: 14px;
   margin: 5px;
 }
@@ -67,4 +100,44 @@ input {
 .image-uploader {
   background: none;
   box-shadow: none;
+}
+
+.post {
+  background-color: #089fbab9;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 2px 20px 0;
+  opacity: 0.7;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.post:hover {
+  opacity: 1;
+}
+
+.delete-btn {
+  background-color: #c41f38cb;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 2px 20px 0;
+  opacity: 0.7;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.delete-btn:hover {
+  opacity: 1;
 }

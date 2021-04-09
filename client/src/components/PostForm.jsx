@@ -25,8 +25,10 @@ const PostForm = (props) => {
       }
       
     return (
-        <div className="form-container">
-            <form  type="submit" onSubmit={handleSubmit}>
+        <div>
+          <div className="form-container">
+          <h1>Add a Meme</h1>
+            <form type="submit" onSubmit={handleSubmit}>
                 <input
                 type="text"
                 name="username"
@@ -61,8 +63,9 @@ const PostForm = (props) => {
                 className="image-uploader"
                 />
                 <br></br>
-                <button>Create a Post!</button>
+                <button className="post">Create a Post!</button>
             </form>
+            </div>
         </div>
     )
 }
