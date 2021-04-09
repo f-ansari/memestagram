@@ -7,6 +7,7 @@ const CommentSection = (props) => {
     return (
         <div>
           <CommentForm id={props.id}/>
+          <h1>Comments:</h1>
           {props.comments ? props.comments.map((comment, i) => (
             <CommentCard key={i} comment={comment} /> ))
           :
