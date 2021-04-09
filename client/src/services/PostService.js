@@ -29,8 +29,8 @@ export const __DeletePost = async (id) => {
 
 export const __GetOnePost = async (id) => {
   try {
-    const res = await Client.get(`/post/${id}`)
-    return res
+    const res = await Client.get(`/posts/${id}`)
+    return res.data
   } catch (error) {
     throw error
   }

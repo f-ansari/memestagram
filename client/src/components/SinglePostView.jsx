@@ -1,13 +1,34 @@
-import React from 'react'
-// import { connect } from 'react-redux'
-// import { GetOnePost } from '../store/actions/PostAction'
+import React, {useEffect} from 'react'
+import { connect } from 'react-redux'
+import {GetOnePost } from '../store/actions/PostAction'
+
+
+const mapStateToProps = ({postState}) => {
+  return {postState}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getDetails : (id) => dispatch(GetOnePost(id))
+  }
+}
 
 const SinglePostView = (props) => {
+  const postDetail = props.postState.postDetails
+  const id = props.match.params.id
+  useEffect(() => {
+    props.getDetails(id)
+     //eslint-disable-next-line
+  }, [])
+
     return (
         <div>
             <h1>post details</h1>
+            <h2>{postDetail.username}</h2>
+            <img src={postDetail.image} width="100em" alt="memes"></img>
+            <p>{postDetail.caption} </p>
         </div>
     )
 }
 
-export default SinglePostView
+export default connect(mapStateToProps, mapDispatchToProps) (SinglePostView)
