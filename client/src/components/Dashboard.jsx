@@ -19,8 +19,8 @@ const AllPosts = (props) => {
 
 useEffect(() => {
   props.getAllPosts()
-   //eslint-disable-next-line
-}, [props.getAllPosts])
+  //eslint-disable-next-line
+}, [])
 
   return (
     <div className="main-container">

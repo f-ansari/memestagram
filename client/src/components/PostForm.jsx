@@ -21,7 +21,7 @@ const PostForm = (props) => {
       }
       
       const handleSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         props.setAddPost(props.postState.createPost)
         props.history.push(`/`) 
       }

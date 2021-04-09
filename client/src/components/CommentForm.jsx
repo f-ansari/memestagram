@@ -28,6 +28,7 @@ const PostForm = (props) => {
 
       useEffect(() => {
         props.setId(props.id)
+        //eslint-disable-next-line
       }, [props.id])
       
     return (

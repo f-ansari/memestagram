@@ -33,10 +33,9 @@ const PostReducer = (state = iState, action) => {
     case ADD_POST:
       return {
         ...state,
-        mapPost: [...state.mapPost, { name: state.createPost }]
+        mapPost: [...state.mapPost, action.payload]
       }
     case DELETE_POST:
-      console.log(action.payload.data)
       const mapPost = state.mapPost.filter(
         (destroyPost, i) => destroyPost.id !== action.payload.data.payload
       )

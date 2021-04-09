@@ -34,11 +34,7 @@ export const AddPost = (formData) => async (dispatch) => {
     const create = await __AddPost(formData)
     dispatch({
       type: ADD_POST,
-      payload: {
-        username: create.username,
-        image: create.image,
-        caption: create.caption
-      }
+      payload: create
     })
   } catch (error) {
     throw error
@@ -60,7 +56,6 @@ export const DeletePost = (id) => async (dispatch) => {
 export const GetOnePost = (id) => async (dispatch) => {
   try {
     const post = await __GetOnePost(id)
-    console.log(post)
     dispatch({
       type: POST_DETAILS,
       payload: post

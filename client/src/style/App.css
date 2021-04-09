@@ -35,6 +35,8 @@ main {
   margin-top: 5.5em;
   -webkit-overflow-scrolling: auto;
   overflow-y: scroll;
+  padding-bottom: 5em;
+  height: 753vh;
 }
 
 .main-container {
@@ -52,8 +54,8 @@ main {
 }
 
 .card {
-  max-width: 290px;
-  max-height: 380px;
+  width: 300px;
+  height: 390px;
   border-radius: 4px;
   color: rgb(9, 70, 96);
   cursor: pointer;
@@ -67,8 +69,14 @@ main {
 
 .card img {
   width: 100%;
+  border-radius: 10px;
+  height: 19em;
+}
+
+img {
+  width: 100%;
+  height: 19em;
   border-radius: 2px;
-  height: 75;
 }
 
 .contents {
