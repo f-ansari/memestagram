@@ -4,7 +4,13 @@ import {
   __DeletePost,
   __GetOnePost
 } from '../../services/PostService'
-import { ADD_POST, GET_POST, CREATE_POST, DELETE_POST } from '../types'
+import {
+  ADD_POST,
+  GET_POST,
+  CREATE_POST,
+  DELETE_POST,
+  POST_DETAILS
+} from '../types'
 
 export const GetMapPost = () => async (dispatch) => {
   try {
@@ -53,7 +59,10 @@ export const DeletePost = (id) => async (dispatch) => {
 export const GetOnePost = (id) => async (dispatch) => {
   try {
     const post = await __GetOnePost(id)
-    dispatch({})
+    dispatch({
+      type: POST_DETAILS,
+      dispatch: post
+    })
   } catch (error) {
     throw error
   }
