@@ -22,3 +22,9 @@ class SinglePost(Resource):
     def delete(self, id):
         post = Post.delete(id)
         return {'msg': 'Post Deleted', 'payload': post['id']}
+
+
+class PostComments(Resource):
+    def get(self, id):
+        post = Post.include_comments(id)
+        return post
