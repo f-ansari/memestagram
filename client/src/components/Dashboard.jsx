@@ -12,8 +12,6 @@ const mapStateToProps = ({ postState }) => {
 const mapDispatchToProps = (dispatch) => {
     return{
       getAllPosts: () => dispatch(GetMapPost()),
-      // setCreatePost: (formName, formValue) => dispatch(CreateNewPost(formName, formValue)),
-      // setAddPost: (formData) => dispatch(AddPost(formData))
     }
 }
 
@@ -23,15 +21,6 @@ const AllPosts = (props) => {
 useEffect(() => {
   props.getAllPosts()
 }, [])
-
-// const handleChange = (e) => {
-//   props.setCreatePost(e.target.name, e.target.value)
-// }
-
-// const handleSubmit = (e) => {
-//   props.setAddPost(props.postState.createPost)
-// }
-
 
   return (
     <div>
