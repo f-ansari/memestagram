@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
-import {GetOnePost } from '../store/actions/PostAction'
+import {GetOnePost, DeletePost } from '../store/actions/PostAction'
 
 
 const mapStateToProps = ({postState}) => {
@@ -9,20 +9,28 @@ const mapStateToProps = ({postState}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getDetails : (id) => dispatch(GetOnePost(id))
+    getDetails: (id) => dispatch(GetOnePost(id)),
+    desrtroyPost: (id) => dispatch(DeletePost(id))
   }
 }
 
 const SinglePostView = (props) => {
   const postDetail = props.postState.postDetails
   const id = props.match.params.id
+
   useEffect(() => {
     props.getDetails(id)
      //eslint-disable-next-line
   }, [])
 
+  const handleSubmit = (e) => {
+    props.desrtroyPost(id)
+    props.history.push(`/`) 
+  }
+
     return (
         <div>
+            <button onClick={(e)=>handleSubmit(e)}>Delete Post</button>
             <h1>post details</h1>
             <h2>{postDetail.username}</h2>
             <img src={postDetail.image} width="100em" alt="memes"></img>

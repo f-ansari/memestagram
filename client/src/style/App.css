@@ -15,15 +15,56 @@ header nav a {
   margin: 0 1.5em;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
+.container-grid {
+  padding: 2em 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 3em;
-  grid-row-gap: 2em;
-  max-width: 50em;
-  min-width: 40em;
-  margin-top: 2em;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1em;
+  justify-content: center;
+  height: auto;
+}
+
+.card {
+  max-width: 300px;
+  max-height: 450px;
+  border-radius: 4px;
+  color: rgb(9, 70, 96);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contents {
+  margin-left: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input {
+  border-radius: 50px;
+  background: #f1f3f4;
+  box-shadow: inset 4px 4px 7px #dbddde, inset -4px -4px 7px #ffffff;
+  outline: none;
+  border-style: hidden;
+  padding: 8px;
+  padding-left: 14px;
+  margin: 5px;
+}
+
+.image-uploader {
+  background: none;
+  box-shadow: none;
 }

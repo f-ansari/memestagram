@@ -25,13 +25,15 @@ useEffect(() => {
   return (
     <div>
       <h1>All Posts</h1>
-        <div className="container">
+        <div className="container-grid">
         {props.postState.mapPost.length ?  (
           props.postState.mapPost.map((post, i) => (
-          <div onClick={() => props.history.push(`/postdetail/${post.id}`)}key={i}> 
-            <img src={post.image} width="100em" alt="memes"></img>
-            <h3>{post.username}</h3>
-            <p>{post.caption}</p>
+          <div className="card" onClick={() => props.history.push(`/postdetail/${post.id}`)}key={i}>
+            <div className="contents">
+              <img src={post.image} width="100em" alt="memes"></img>
+              <h3>{post.username}</h3>
+              <p>{post.caption}</p>
+            </div>
           </div> 
           ))
         ): <h3>Loading</h3> }
