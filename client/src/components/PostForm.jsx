@@ -27,7 +27,7 @@ const PostForm = (props) => {
       
     return (
         <div>
-            <form>
+            <form type="submit" onSubmit={handleSubmit}>
                 <input
                 type="text"
                 name="username"
@@ -52,7 +52,7 @@ const PostForm = (props) => {
                 onChange={handleChange}
                 />
                 <br></br>
-                <button type="submit" onSubmit={handleSubmit}>Create a Post!</button>
+                <button>Create a Post!</button>
             </form>
         </div>
     )

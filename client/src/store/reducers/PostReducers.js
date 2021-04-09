@@ -1,4 +1,10 @@
-import { CREATE_POST, ADD_POST, DELETE_POST, GET_POST } from '../types'
+import {
+  CREATE_POST,
+  ADD_POST,
+  DELETE_POST,
+  GET_POST,
+  POST_DETAILS
+} from '../types'
 
 const iState = {
   mapPost: [],
