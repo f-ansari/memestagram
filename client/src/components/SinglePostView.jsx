@@ -37,7 +37,7 @@ const SinglePostView = (props) => {
         <div className="form-container">
             <button className="delete-btn" onClick={(e)=>handleSubmit(e)}>Delete Post</button>
             <br></br>
-            <img width="50%" src={postDetail.image} alt="memes"></img>
+            <img width="75%" src={postDetail.image} alt="memes"></img>
             <h2>@{postDetail.username}</h2>
             <p>{postDetail.caption} </p>
 

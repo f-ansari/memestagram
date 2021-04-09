@@ -6,7 +6,7 @@
   padding-right: 3em;
   width: 100vw;
   font-family: 'Days One', sans-serif;
-  background-color: rgba(183, 79, 206, 0.482);
+  background-color: rgb(246, 223, 130);
   margin-right: 3em;
 }
 
@@ -28,6 +28,10 @@ nav {
 nav a {
   margin: 0 1.5em;
   color: rgb(65, 7, 70);
+}
+
+main {
+  margin-top: 10em;
 }
 
 .main-container {
@@ -71,16 +75,16 @@ nav a {
 .form-container {
   text-align: center;
   max-width: 500px;
-  max-height: 550px;
+  max-height: 500px;
 
-  padding: 3em;
+  padding-top: 1em;
+  padding-bottom: 4em;
 
   background: rgba(136, 16, 147, 0.407);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-
-  margin-top: 10em;
+  margin-top: 6em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -131,8 +135,6 @@ input {
   margin: 20px 2px 20px 0;
   opacity: 0.7;
   transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
   cursor: pointer;
   border-radius: 50px;
 }
