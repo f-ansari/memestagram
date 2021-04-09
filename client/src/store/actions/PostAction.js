@@ -40,7 +40,9 @@ export const AddPost = (formData) => async (dispatch) => {
         caption: create.caption
       }
     })
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 }
 
 export const DeletePost = (id) => async (dispatch) => {

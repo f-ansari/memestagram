@@ -29,7 +29,7 @@ export const __DeletePost = async (id) => {
 
 export const __GetOnePost = async (id) => {
   try {
-    const res = await Client.get(`/posts/${id}`)
+    const res = await Client.get(`/posts/comments/${id}`)
     return res.data
   } catch (error) {
     throw error
