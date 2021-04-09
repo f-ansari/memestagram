@@ -35,6 +35,11 @@ class Comment(db.Model):
         return self
 
     @classmethod
+    def find_all(cls):
+        comments = Comment.query.all()
+        return [comment.json() for comment in comments]
+
+    @classmethod
     def find_by_id(cls, id):
         return Comment.query.filter_by(id=id).first()
 

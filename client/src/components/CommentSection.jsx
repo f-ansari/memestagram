@@ -9,9 +9,9 @@ const CommentSection = (props) => {
           <CommentForm id={props.id}/>
           <h1>Comments:</h1>
           {props.comments ? props.comments.map((comment, i) => (
-            <CommentCard key={i} comment={comment} /> ))
+            <CommentCard key={i} comment={comment}  destroyComment={props.destroyComment}/> ))
           :
-            null
+            <h3>Loading</h3>
           }
 
         </div>

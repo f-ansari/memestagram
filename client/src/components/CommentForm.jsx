@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import { AddComment, CreateNewComment, SetPostId} from '../store/actions/CommentAction'
 
 const mapStateToProps = ({ postState , commentState}) => {
-    console.log(commentState)
     return { postState , commentState}
   
   }
@@ -25,12 +24,7 @@ const PostForm = (props) => {
       const handleSubmit = (e) => {
         e.preventDefault()
         props.setAddComment(props.commentState)
-        // props.history.push(`/`) 
       }
-
-      // const handleNewPost = () => {
-      //   props.setId(props.id)
-      // }
 
       useEffect(() => {
         props.setId(props.id)
@@ -62,7 +56,6 @@ const PostForm = (props) => {
                 type="hidden"
                 name="post_id"
                 value={props.commentState.post_id}
-                // onChange={handleChange}
                 />
                 <br></br>
                 <button className="post">Create a Post!</button>

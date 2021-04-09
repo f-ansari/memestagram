@@ -60,6 +60,7 @@ export const DeletePost = (id) => async (dispatch) => {
 export const GetOnePost = (id) => async (dispatch) => {
   try {
     const post = await __GetOnePost(id)
+    console.log(post)
     dispatch({
       type: POST_DETAILS,
       payload: post
