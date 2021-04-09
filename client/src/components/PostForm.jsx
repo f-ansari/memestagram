@@ -25,14 +25,15 @@ const PostForm = (props) => {
       }
       
     return (
-        <div>
-            <form type="submit" onSubmit={handleSubmit}>
+        <div className="form-container">
+            <form  type="submit" onSubmit={handleSubmit}>
                 <input
                 type="text"
                 name="username"
                 placeholder="username"
                 value={props.postState.createPost.username}
                 onChange={handleChange}
+                className="input-feild"
                 />
                 <br></br>
                 <input
@@ -41,6 +42,7 @@ const PostForm = (props) => {
                 placeholder="Upload a Meme"
                 value={props.postState.createPost.image}
                 onChange={handleChange}
+                className="input-feild"
                 />
                 <br></br>
                 <input
@@ -49,6 +51,14 @@ const PostForm = (props) => {
                 placeholder="Insert Caption"
                 value={props.postState.createPost.caption}
                 onChange={handleChange}
+                className="input-feild"
+                />
+                <br></br>
+                <input
+                type="file"
+                accept="image/*"
+                name="image"
+                className="image-uploader"
                 />
                 <br></br>
                 <button>Create a Post!</button>
