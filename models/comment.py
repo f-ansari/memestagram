@@ -41,6 +41,6 @@ class Comment(db.Model):
     @classmethod
     def delete(cls, id):
         comment = Comment.find_by_id(id)
-        db.session.delete(post)
+        db.session.delete(comment)
         db.session.commit()
         return comment.json()
