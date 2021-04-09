@@ -22,6 +22,7 @@ const PostForm = (props) => {
       
       const handleSubmit = (e) => {
         props.setAddPost(props.postState.createPost)
+        props.history.push(`/`) 
       }
       
     return (
