@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {CreateNewPost, AddPost} from '../store/actions/PostAction'
 
 const mapStateToProps = ({ postState }) => {
@@ -26,7 +27,33 @@ const PostForm = (props) => {
       
     return (
         <div>
-            <h1>I am a form...</h1>
+            <form>
+                <input
+                type="text"
+                name="username"
+                placeholder="username"
+                value={props.postState.createPost.username}
+                onChange={handleChange}
+                />
+                <br></br>
+                <input
+                type="url"
+                name="image"
+                placeholder="Upload a Meme"
+                value={props.postState.createPost.image}
+                onChange={handleChange}
+                />
+                <br></br>
+                <input
+                type="text"
+                name="caption"
+                placeholder="Insert Caption"
+                value={props.postState.createPost.caption}
+                onChange={handleChange}
+                />
+                <br></br>
+                <button type="submit" onSubmit={handleSubmit}>Create a Post!</button>
+            </form>
         </div>
     )
 }
