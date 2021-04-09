@@ -1,5 +1,5 @@
-import { __AddComment } from '../../services/CommentService'
-import { CREATE_COMMENT, ADD_COMMENT, POST_ID } from '../types'
+import { __AddComment, __DeleteComment } from '../../services/CommentService'
+import { CREATE_COMMENT, ADD_COMMENT, POST_ID, DELETE_COMMENT } from '../types'
 
 export const CreateNewComment = (formName, formValue) => ({
   type: CREATE_COMMENT,
@@ -22,3 +22,15 @@ export const SetPostId = (id) => ({
   type: POST_ID,
   payload: id
 })
+
+export const DeleteComment = (id) => async (dispatch) => {
+  try {
+    const destroy = await __DeleteComment(id)
+    dispatch({
+      type: DELETE_COMMENT,
+      payload: destroy
+    })
+  } catch (error) {
+    throw error
+  }
+}

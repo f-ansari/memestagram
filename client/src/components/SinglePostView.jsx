@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import {GetOnePost, DeletePost } from '../store/actions/PostAction'
 import CommentSection from '../components/CommentSection'
+import {DeleteComment} from '../store/actions/CommentAction'
 
 
 
@@ -12,7 +13,8 @@ const mapStateToProps = ({postState}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getDetails: (id) => dispatch(GetOnePost(id)),
-    destroyPost: (id) => dispatch(DeletePost(id))
+    destroyPost: (id) => dispatch(DeletePost(id)),
+    destroyComment: (id) => dispatch(DeleteComment(id))
   }
 }
 
@@ -39,7 +41,7 @@ const SinglePostView = (props) => {
             <h2>@{postDetail.username}</h2>
             <p>{postDetail.caption} </p>
 
-            <CommentSection comments={postDetail.comments} id={props.match.params.id} />
+            <CommentSection comments={postDetail.comments} id={props.match.params.id} destroyComment={props.destroyComment}/>
 
         </div>
     )

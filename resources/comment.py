@@ -4,6 +4,10 @@ from models.comment import Comment
 
 
 class Comments(Resource):
+    def get(self):
+        comment = Comment.find_all()
+        return comment
+
     def post(self):
         comment = Comment(**request.get_json())
         comment.create()

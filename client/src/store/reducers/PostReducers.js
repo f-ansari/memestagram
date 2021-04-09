@@ -4,12 +4,13 @@ import {
   DELETE_POST,
   GET_POST,
   POST_DETAILS,
-  ADD_COMMENT
+  ADD_COMMENT,
+  DELETE_COMMENT
 } from '../types'
 
 const iState = {
   mapPost: [],
-  postDetails: {},
+  postDetails: [],
   createPost: {
     username: '',
     image: '',
@@ -49,6 +50,18 @@ const PostReducer = (state = iState, action) => {
       return {
         ...state,
         postDetails: { ...state.postDetails, comments: commentsArr }
+      }
+    case DELETE_COMMENT:
+      console.log(action.payload)
+      const commentsArray = state.postDetails.comments
+      const comment = commentsArray.filter(
+        (destroyComment, i) => destroyComment.id !== action.payload.data.payload
+      )
+
+      console.log(comment)
+      return {
+        ...state,
+        postDetails: { ...state.postDetails, comments: comment }
       }
     default:
       return { ...state }
