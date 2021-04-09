@@ -28,7 +28,7 @@ useEffect(() => {
         <div className="container">
         {props.postState.mapPost.length ?  (
           props.postState.mapPost.map((post, i) => (
-          <div key={i}> 
+          <div onClick={() => props.history.push(`/postdetail/${post.id}`)}key={i}> 
             <img src={post.image} width="100em"></img>
             <h3>{post.username}</h3>
             <p>{post.caption}</p>
