@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
-import {GetMapPost, CreateNewPost} from '../store/actions/PostAction'
+import {GetMapPost} from '../store/actions/PostAction'
 
 
 const mapStateToProps = ({ postState }) => {
