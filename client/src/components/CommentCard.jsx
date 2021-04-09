@@ -7,9 +7,9 @@ const CommentCard = (props) => {
     return (
 
     <div>
-        <div className="form-container">
-           <h3>@{username}</h3>
-           <h4>{comment}</h4>
+        <div className="card-continer">
+           <h4>@{username}</h4>
+           <p>{comment}</p>
            <button className='delete-btn' onClick={() => props.destroyComment(id)}>Delete</button>
         </div>
     </div>

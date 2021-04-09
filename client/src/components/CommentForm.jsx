@@ -28,6 +28,7 @@ const PostForm = (props) => {
 
       useEffect(() => {
         props.setId(props.id)
+        //eslint-disable-next-line
       }, [props.id])
       
     return (
@@ -44,7 +45,7 @@ const PostForm = (props) => {
                 className="input-feild"
                 />
                 <br></br>
-                <input
+                <textarea
                 type="text"
                 name="comment"
                 placeholder="Insert Comment"

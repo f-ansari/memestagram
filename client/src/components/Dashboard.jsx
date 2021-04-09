@@ -19,7 +19,7 @@ const AllPosts = (props) => {
 
 useEffect(() => {
   props.getAllPosts()
-   //eslint-disable-next-line
+  //eslint-disable-next-line
 }, [])
 
   return (
