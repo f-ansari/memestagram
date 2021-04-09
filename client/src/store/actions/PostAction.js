@@ -15,7 +15,6 @@ import {
 export const GetMapPost = () => async (dispatch) => {
   try {
     const posts = await __GetMapPost()
-    console.log(posts)
     dispatch({
       type: GET_POST,
       payload: posts
@@ -46,7 +45,7 @@ export const AddPost = (formData) => async (dispatch) => {
 
 export const DeletePost = (id) => async (dispatch) => {
   try {
-    const deleted = await DeletePost(id)
+    const deleted = await __DeletePost(id)
     dispatch({
       type: DELETE_POST,
       payload: deleted
@@ -61,7 +60,7 @@ export const GetOnePost = (id) => async (dispatch) => {
     const post = await __GetOnePost(id)
     dispatch({
       type: POST_DETAILS,
-      dispatch: post
+      payload: post
     })
   } catch (error) {
     throw error

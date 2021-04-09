@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {CreateNewPost, AddPost} from '../store/actions/PostAction'
 
 const mapStateToProps = ({ postState }) => {
-    console.log(postState)
     return { postState }
   
   }

@@ -8,7 +8,7 @@ import {
 
 const iState = {
   mapPost: [],
-  postDetials: {},
+  postDetails: {},
   createPost: {
     username: '',
     image: '',
@@ -39,7 +39,7 @@ const PostReducer = (state = iState, action) => {
       )
       return { ...state, ...mapPost }
     case POST_DETAILS:
-      return { ...state, postDetials: action.payload }
+      return { ...state, postDetails: action.payload }
     default:
       return { ...state }
   }

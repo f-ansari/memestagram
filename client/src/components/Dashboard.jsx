@@ -4,7 +4,6 @@ import {GetMapPost} from '../store/actions/PostAction'
 
 
 const mapStateToProps = ({ postState }) => {
-  console.log(postState)
   return { postState }
 
 }
@@ -20,6 +19,7 @@ const AllPosts = (props) => {
 
 useEffect(() => {
   props.getAllPosts()
+   //eslint-disable-next-line
 }, [])
 
   return (
@@ -29,7 +29,7 @@ useEffect(() => {
         {props.postState.mapPost.length ?  (
           props.postState.mapPost.map((post, i) => (
           <div onClick={() => props.history.push(`/postdetail/${post.id}`)}key={i}> 
-            <img src={post.image} width="100em"></img>
+            <img src={post.image} width="100em" alt="memes"></img>
             <h3>{post.username}</h3>
             <p>{post.caption}</p>
           </div> 
