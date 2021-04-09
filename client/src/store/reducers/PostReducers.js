@@ -52,13 +52,10 @@ const PostReducer = (state = iState, action) => {
         postDetails: { ...state.postDetails, comments: commentsArr }
       }
     case DELETE_COMMENT:
-      console.log(action.payload)
       const commentsArray = state.postDetails.comments
       const comment = commentsArray.filter(
         (destroyComment, i) => destroyComment.id !== action.payload.data.payload
       )
-
-      console.log(comment)
       return {
         ...state,
         postDetails: { ...state.postDetails, comments: comment }
