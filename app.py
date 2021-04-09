@@ -4,7 +4,9 @@ from flask_migrate import Migrate
 from models.db import db
 from sqlalchemy.orm import joinedload
 from models.post import Post
-from resources.post import SinglePost, Posts
+from models.comment import Comment
+from resources.post import SinglePost, Posts, PostComments
+from resources.comment import Comments, SingleComment
 from flask_cors import CORS
 
 
@@ -21,9 +23,11 @@ migrate = Migrate(app, db)
 
 
 api.add_resource(Posts, '/posts')
-
-
 api.add_resource(SinglePost, '/posts/<int:id>')
+api.add_resource(PostComments, '/posts/comments/<int:id>')
+
+api.add_resource(Comments, '/comments')
+api.add_resource(SingleComment, '/comments/<int:id>')
 
 
 if __name__ == '__main__':

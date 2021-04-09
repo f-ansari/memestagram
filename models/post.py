@@ -1,5 +1,6 @@
 from datetime import datetime
 from models.db import db
+from sqlalchemy.orm import joinedload
 
 
 class Post(db.Model):
@@ -13,6 +14,8 @@ class Post(db.Model):
         db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow,
                            nullable=False, onupdate=datetime.now())
+    comments = db.relationship(
+        "Comment", cascade='all', backref=db.backref('comments', lazy=True))
 
     def __init__(self, username, image, caption):
         self.username = username
@@ -47,3 +50,10 @@ class Post(db.Model):
         db.session.delete(post)
         db.session.commit()
         return post.json()
+
+    @classmethod
+    def include_comments(cls, post_id):
+        post = Post.query.options(joinedload(
+            'comments')).filter_by(id=post_id).first()
+        comments = [comment.json() for comment in post.comments]
+        return {**post.json(), "comments": comments}
