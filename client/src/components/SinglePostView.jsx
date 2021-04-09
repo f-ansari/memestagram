@@ -29,11 +29,11 @@ const SinglePostView = (props) => {
   }
 
     return (
-        <div>
-            <button onClick={(e)=>handleSubmit(e)}>Delete Post</button>
-            <h1>post details</h1>
-            <h2>{postDetail.username}</h2>
-            <img src={postDetail.image} width="100em" alt="memes"></img>
+        <div className="form-container">
+            <button className="delete-btn" onClick={(e)=>handleSubmit(e)}>Delete Post</button>
+            <br></br>
+            <img className=".img-wrapper" src={postDetail.image} width="100em" alt="memes"></img>
+            <h2>@{postDetail.username}</h2>
             <p>{postDetail.caption} </p>
         </div>
     )
