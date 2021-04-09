@@ -9,7 +9,7 @@ export const __GetMapPost = async () => {
   }
 }
 
-export const __CreatePost = async (formData) => {
+export const __AddPost = async (formData) => {
   try {
     const res = await Client.post('/posts', formData)
     return res.data
@@ -21,6 +21,15 @@ export const __CreatePost = async (formData) => {
 export const __DeletePost = async (id) => {
   try {
     const res = await Client.delete(`/posts/${id}`)
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+export const __GetOnePost = async (id) => {
+  try {
+    const res = await Client.get(`/post/${id}`)
     return res
   } catch (error) {
     throw error
