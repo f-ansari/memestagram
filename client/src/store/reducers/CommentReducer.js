@@ -1,10 +1,9 @@
-import { CREATE_COMMENT } from '../types'
+import { CREATE_COMMENT, POST_ID } from '../types'
 
 const iState = {
-  createComment: {
-    username: '',
-    comment: ''
-  }
+  username: '',
+  comment: '',
+  post_id: ''
 }
 
 const CommentReducer = (state = iState, action) => {
@@ -12,11 +11,10 @@ const CommentReducer = (state = iState, action) => {
     case CREATE_COMMENT:
       return {
         ...state,
-        createComment: {
-          ...state.createComment,
-          [action.payload.name]: action.payload.value
-        }
+        [action.payload.name]: action.payload.value
       }
+    case POST_ID:
+      return { ...state, post_id: action.payload, username: '', comment: '' }
     default:
       return { ...state }
   }

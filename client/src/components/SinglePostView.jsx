@@ -4,6 +4,7 @@ import {GetOnePost, DeletePost } from '../store/actions/PostAction'
 import CommentSection from '../components/CommentSection'
 
 
+
 const mapStateToProps = ({postState}) => {
   return {postState}
 }
@@ -38,7 +39,7 @@ const SinglePostView = (props) => {
             <h2>@{postDetail.username}</h2>
             <p>{postDetail.caption} </p>
 
-            <CommentSection comments={postDetail.comments} />
+            <CommentSection comments={postDetail.comments} id={props.match.params.id} />
 
         </div>
     )

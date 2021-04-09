@@ -3,7 +3,8 @@ import {
   ADD_POST,
   DELETE_POST,
   GET_POST,
-  POST_DETAILS
+  POST_DETAILS,
+  ADD_COMMENT
 } from '../types'
 
 const iState = {
@@ -41,6 +42,14 @@ const PostReducer = (state = iState, action) => {
       return { ...state, mapPost }
     case POST_DETAILS:
       return { ...state, postDetails: action.payload }
+    case ADD_COMMENT:
+      const commentsArr = state.postDetails.comments
+      commentsArr.push(action.payload)
+
+      return {
+        ...state,
+        postDetails: { ...state.postDetails, comments: commentsArr }
+      }
     default:
       return { ...state }
   }
