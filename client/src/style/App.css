@@ -73,11 +73,11 @@ main {
   height: 19em;
 }
 
-img {
+/* img {
   width: 100%;
   height: 19em;
   border-radius: 2px;
-}
+} */
 
 .contents {
   margin-left: 1em;
