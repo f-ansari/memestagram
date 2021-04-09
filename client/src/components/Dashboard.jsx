@@ -20,7 +20,7 @@ const AllPosts = (props) => {
 useEffect(() => {
   props.getAllPosts()
    //eslint-disable-next-line
-}, [])
+}, [props.getAllPosts])
 
   return (
     <div className="main-container">

@@ -44,7 +44,7 @@ const PostForm = (props) => {
                 className="input-feild"
                 />
                 <br></br>
-                <input
+                <textarea
                 type="text"
                 name="comment"
                 placeholder="Insert Comment"
