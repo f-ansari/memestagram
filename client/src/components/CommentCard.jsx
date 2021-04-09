@@ -5,10 +5,12 @@ const CommentCard = (props) => {
   const {username, comment} = props.comment
 
     return (
-        <div>
-           <h5>{username}</h5>
-           <p>{comment}</p>
+    <div>
+        <div className="form-container">
+           <h3>@{username}</h3>
+           <h4>{comment}</h4>
         </div>
+    </div>
     )
 }
 
