@@ -1,6 +1,7 @@
 from flask_restful import Resource
 from flask import request
 from models.comment import Comment
+from models.db import db
 
 
 class Comments(Resource):
@@ -22,3 +23,11 @@ class SingleComment(Resource):
     def delete(self, id):
         comment = Comment.delete(id)
         return {'msg': "Comment Deleted", 'payload': comment['id']}
+
+    def put(self, id):
+        comment = Comment.find_by_id(id)
+        data = request.get_json()
+        for key in data:
+            setattr(comment, key, data[key])
+        db.session.commit()
+        return comment.json()

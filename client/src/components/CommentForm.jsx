@@ -26,6 +26,8 @@ const PostForm = (props) => {
         props.setAddComment(props.commentState)
       }
 
+      // console.log(props.setId(props.id))
+
       useEffect(() => {
         props.setId(props.id)
         //eslint-disable-next-line
