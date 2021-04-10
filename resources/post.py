@@ -1,6 +1,7 @@
 from flask_restful import Resource
 from flask import request
 from models.post import Post
+from models.db import db
 
 
 class Posts(Resource):
@@ -22,6 +23,14 @@ class SinglePost(Resource):
     def delete(self, id):
         post = Post.delete(id)
         return {'msg': 'Post Deleted', 'payload': post['id']}
+
+    def put(self, id):
+        post = Post.find_by_id(id)
+        data = request.get_json()
+        for key in data:
+            setattr(post, key, data[key])
+        db.session.commit()
+        return post.json()
 
 
 class PostComments(Resource):

@@ -49,3 +49,11 @@ class Comment(db.Model):
         db.session.delete(comment)
         db.session.commit()
         return comment.json()
+
+    @classmethod
+    def update(cls, id, fields):
+        comment = Comment.find_by_id(id)
+        for key in field:
+            setattr(comment, key, fields[key])
+            db.session.commit()
+            return comment.json()
